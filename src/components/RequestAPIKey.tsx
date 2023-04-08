@@ -58,7 +58,7 @@ const RequestAPIKey: FC = ({ }) => {
                     {APIKey ? (
                         <CopyButton valueToCopy={APIKey} className="absolute inset-y-0 right-0 animate-in fade-in duration-300" />
                     ) : null}
-                    <Input readOnly value={APIKey ?? ''} placeholder='Request API Key to display it here.'/>
+                    <Input readOnly value={APIKey ?? ''} placeholder='Request an API Key to display it here.'/>
                 </div>
                 <div className='mt-3 sm:mt-0 sm:ml-4 sm:flex-shrink-0'>
                     <Button disabled={!!APIKey} isLoading={isCreating}>Request a key</Button>
