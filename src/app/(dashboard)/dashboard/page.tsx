@@ -17,6 +17,7 @@ const page = async () => {
     const user = await getServerSession(authOptions)
     if (!user) return notFound()
 
+    // @ts-ignore
     const APIKey = await db.APIKey.findFirst({
         where: {
             userId: user.user.id, 
@@ -25,7 +26,10 @@ const page = async () => {
     })
 
     return <div className='max-w-7xl mx-auto mt-16'>
-        {APIKey ? <APIDashboard /> : <RequestAPIKey />}
+        {APIKey ? (
+            // @ts-expect-error Server Component
+            <APIDashboard />
+        ) : <RequestAPIKey />}
     </div>
 }
 
